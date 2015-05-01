@@ -55,12 +55,18 @@ docs/_build/
 
 # PyBuilder
 target/
+<<<<<<< HEAD
 
 # PyCharm
 .idea/
+
+# Databases
+*.sqlite3
 
 #Static and media dirs
 /static/
 /media/
 
 runserver
+=======
+>>>>>>> 9cfc2ef73fba8c0d65cc97587d5300c298f6a4a5
