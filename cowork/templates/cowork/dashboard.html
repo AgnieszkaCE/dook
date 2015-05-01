@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+        {% block sidebar %}
+            {% if request.user.is_company_type %}
+            {% include "cowork/dashboard/sidebar_company.html" %}
+                {% else %}
+            {% include "cowork/dashboard/sidebar_coworker.html" %}
+            {% endif %}
+        {% endblock %}
+        </div>
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        {% block panel %}
+            {% if request.user.is_company_type %}
+            {% include "cowork/dashboard/dashboard_company.html" %}
+                {% else %}
+            {% include "cowork/dashboard/dashboard_coworker.html" %}
+            {% endif %}
+        {% endblock %}
+        </div>
+    </div>
+</div>
+{% endblock %}

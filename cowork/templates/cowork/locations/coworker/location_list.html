@@ -1,0 +1,43 @@
+{% extends "cowork/dashboard.html" %}
+
+{% block panel %}
+<h1 class="page-header">Your rented locations</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            {% if location_list %}
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>From date</th>
+                        <th>Until date</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for loc in location_list %}
+                    <tr>
+                        <td>{{foorloop.counter}}</td>
+                        <td>{{loc.name}}</td>
+                        <td>{{loc.address}}</td>
+                        <td>{{loc.from_date}}</td>
+                        <td>{{loc.until_date}}</td>
+                        <td>{{loc.price}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <div>
+                <h4>Your rented locations list is empty</h4>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+

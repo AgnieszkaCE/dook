@@ -1,0 +1,13 @@
+@white: #fff;
+
+
+.gen_color(@name){
+  .font-@{name}{
+    color: @@name !important;
+  }
+  .bg-@{name}{
+    background-color: @@name !important;
+  }
+}
+
+.gen_color(~"white");

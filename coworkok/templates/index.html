@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="jumbotron">
+  <div class="container">
+    
+    <div class="row text-center">
+      <div class="col-md-6">
+  
+        <h2 class="index-header"> Would you like to hire desk in your location</h2>    
+        <a href="{% url 'accounts:register' %}" class="btn btn-success btn-lg">Sign up!</a>
+
+      </div>
+      <div class="col-md-6">
+        <h2 class="index-header"> Would you like to rent a desk? </h2>
+        <a href="{% url 'cowork:search' %}" class="btn btn-primary btn-lg">Search in your city</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="container">
+  <!-- Example row of columns -->
+  <div class="row">
+    <div class="col-md-4">
+      <h2>Heading</h2>
+      <p class="lipsum"></p>
+      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+      <h2>Heading</h2>
+      <p class="lipsum"></p>
+      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+   </div>
+    <div class="col-md-4">
+      <h2>Heading</h2>
+      <p class="lipsum"></p>
+      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+    </div>
+  </div>
+</div>
+{% endblock %}

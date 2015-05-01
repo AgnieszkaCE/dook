@@ -1,0 +1,43 @@
+{% extends "cowork/dashboard.html" %}
+
+{% block panel %}
+<h1 class="page-header">List of your offices</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            {% if office_list %}
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>From date</th>
+                        <th>Until date</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for office in office_list %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{office.name}}</td>
+                        <td>{{office.address}}</td>
+                        <td>{{office.from_date}}</td>
+                        <td>{{office.until_date}}</td>
+                        <td>{{office.price}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <div>
+                <h4>Any office not exists yet</h4>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,16 @@
+{% extends "cowork/dashboard.html" %}
+
+{% block panel %}
+<h1 class="page-header">Add new office</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <form class="form" method="POST" action="{% url 'cowork:locations:add' %}">{% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Add" class="btn btn-primary" />
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
