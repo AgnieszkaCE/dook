@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block css %}
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<link href="/static/admin/css/datepicker.css" rel="stylesheet">
+{% endblock %}
+{% block content %}
+<div class="jumbotron">
+    <div class="container">
+            {% if user.is_authenticated %}
+
+        <form role="form" action="" method="post">
+             {% csrf_token %}
+
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <div class='input-group date' >
+                    <input type='text' name="rent_start_date" class="form-control"   id="datepicker" />
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <div class='input-group date'>
+                        <input type='text'  name="rent_end_date" class="form-control"  id='datepicker2'  />
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <input class="form-control btn btn-primary"  type="submit" value="Rent"  />
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+
+        </form>
+
+
+    {% endif %}
+    </div>
+
+</div>
+{% endblock %}
+{% block js %}
+<script src="/static/admin/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript">
+
+      $(function() {
+
+        $( "#datepicker" ).datepicker({format:'yyyy-mm-dd'});
+        $( "#datepicker2" ).datepicker({format:'yyyy-mm-dd'});
+      });
+</script>
+{% endblock %}

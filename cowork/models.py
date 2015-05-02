@@ -1,5 +1,6 @@
 from __future__ import unicode_literals
 from django.db import models
+from django.utils.encoding import smart_unicode
 
 
 class Address(models.Model):
@@ -30,7 +31,7 @@ class Company(models.Model):
     vat_id = models.ForeignKey(Vat)
 
     def __unicode__(self):
-        return self.name
+        return smart_unicode(" ".join([self.name, str(self.logo)]))
 
 
 class Location(models.Model):
@@ -44,7 +45,7 @@ class Location(models.Model):
         max_digits=12, decimal_places=2)
 
     def __unicode__(self):
-        return '%s' % (self.city)
+        return '%s' % self.city
 
     @property
     def free_desks(self):

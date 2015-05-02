@@ -1,9 +1,4 @@
 **CoWorkOk**
-# CoWorking - find and rent a desk
-Hi there! First of all - thanks for you application.
-It is a great opportunity to rocketfuel yourself in developing Django apps and becoming the next member of DOOK.pro team.
-Please remember, that coding should be first of all fun.
-Keeping fingers crossed to see you during our workshop. Good luck!
 
 ## The problem this app should solve:
 
