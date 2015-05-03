@@ -6,48 +6,74 @@
 {% block content %}
 <div class="jumbotron">
     <div class="container">
+
             {% if user.is_authenticated %}
 
-        <form role="form" action="" method="post">
-             {% csrf_token %}
+            <form role="form" action="" method="post">
+                 {% csrf_token %}
 
-            <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-8">
-                    <div class='input-group date' >
-                    <input type='text' name="rent_start_date" class="form-control"   id="datepicker" />
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                    </div>
-                </div>
-                <div class="col-md-2"></div>
-            </div>
-            <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-8">
-                    <div class='input-group date'>
-                        <input type='text'  name="rent_end_date" class="form-control"  id='datepicker2'  />
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <div class='input-group date' >
+                        <input type='text' name="rent_start_date" class="form-control"   id="datepicker" />
                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                             </span>
+                        </div>
                     </div>
+                    <div class="col-md-2"></div>
                 </div>
-                <div class="col-md-2"></div>
-            </div>
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <div class='input-group date'>
+                            <input type='text'  name="rent_end_date" class="form-control"  id='datepicker2'  />
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <input class="form-control btn btn-primary"  type="submit" value="Rent"  />
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+
+            </form>
+        {% else %}
+        <div class="container">
             <div class="row">
                 <div class="col-md-2"></div>
-                <div class="col-md-8">
-                    <input class="form-control btn btn-primary"  type="submit" value="Rent"  />
+                <div class ="col-md-8 text-center">
+                    <img src="/media/scrollup.png" alt="Strzałka">
                 </div>
                 <div class="col-md-2"></div>
             </div>
 
-        </form>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class ="col-md-8 text-center">
 
+                    <h3>Please sign in or register.</h3>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
 
     {% endif %}
     </div>
 
 </div>
+
+    {% if text %}
+        <div class="alert alert-info text-center">
+            <h3>{{ text }}</h3>
+        </div>
+    {% endif %}
+
 {% endblock %}
 {% block js %}
 <script src="/static/admin/js/bootstrap-datepicker.js"></script>

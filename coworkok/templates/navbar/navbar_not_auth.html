@@ -10,7 +10,7 @@
       <a class="navbar-brand" href="{% url 'index' %}">CoWorkOK</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
-      <form method="post" action="{% url 'accounts:login' %}" class="navbar-form navbar-right">
+      <form method="post" action="{% url 'accounts:login' %}" class="navbar-form navbar-right ">
         {% csrf_token %}
         <div class="form-group">
           <input class="form-control" id="id_username" name="username" placeholder="Email" type="email">
@@ -19,7 +19,12 @@
           <input class="form-control" id="id_password" name="password" placeholder="Password" type="password">
         </div>
         <button type="submit" class="btn btn-success">Sign in</button>
+        <a href="/accounts/register" class="btn btn-info" role="button">Register</a>
       </form>
+
     </div><!--/.navbar-collapse -->
+
+
+    </div>
   </div>
 </nav>

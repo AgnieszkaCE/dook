@@ -1,69 +1,82 @@
 {% extends "base.html" %}
 {% block css %}
-<script language="JavaScript" type="text/javascript">
-      function funMinus(n1, n2){
-        document.write(n1-n2)
-    }
+    <script language="JavaScript" type="text/javascript">
+          function funMinus(n1, n2){
+            document.write(n1-n2)
+        }
     </script>
 {% endblock %}
 {% block content %}
-
-  <div class="jumbotron">
+<div class="jumbotron">
     <div class="container">
 
       <div class="row">    
-
-        <div class="col-md-6">
-
-          <h2>
-            Miasto: <strong>{{ city }}</strong>
-          </h2>
-        </div>
+          {% if city != 0 %}
+            <div class="col-md-6">
+              <h2>
+                City: <strong>{{ city }}</strong>
+              </h2>
+            </div>
+          {% endif %}
 
       <div class="col-md-4 col-md-offset-2">
 
         <form action="/cowork/search/" method="post">
           {% csrf_token %}
-            <label>Miasto: </label>
+            <label>City: </label>
             <input type="text" class="form-control" name="city_name"  />
           
         </form>
-      </div>
 
       </div>
 
     </div>
   </div>
-  <div class="container">
+</div>
+    {% if text %}
+        <div class="alert alert-info text-center">
+            <h3>{{ text }}</h3>
+        </div>
+    {% endif %}
     {% if location %}
-         <ul class="location-list">
       {% for loc in location%}
-      <li>
+         <div class="container">
+                <div class="row">
+                   <div class="col-md-2"></div>
+                    <div class="col-md-8">
 
-        <img src="{{ loc.company.logo.url }}" alt="Logo">
-        <h3>{{ loc.company.name }}</h3>
-        <p>
-          Total desks: {{ loc.total_desks }}
-        </p>
-        <p>
-          Free desks: <script>javascript:funMinus({{ loc.total_desks }}, {{ loc.reserved_desks }});</script></p>
+                        <img class="pull-left " src="{{ loc.company.logo.url }}" alt="Logo"  height="140px" width="140px" />
 
-        <p>
-          Price per desk: {{ loc.price }} $
-        </p>
+                        <div class="col-md-8">
+                            <h3 class="text-left">{{ loc.company.name }}</h3>
+                        </div>
 
-        <a href="/cowork/rent/{{ loc.id }}" class="btn btn-primary">
-          Rent desk
-        </a>
+                        <div class="col-md-4">
+                            <p>Total desks: {{ loc.total_desks }} </p>
+                        </div>
+                        <div class="col-md-4 ">
+                            <p> Free desks: <script>javascript:funMinus({{ loc.total_desks }}, {{ loc.reserved_desks }});</script></p>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8 ">
+                                <p> Price per desk: {{ loc.price }} $</p>
+                            </div>
+                        </div>
 
-      </li>
+                        <div class="col-md-8  text-right">
+                             <a href="/cowork/rent/{{ loc.id }}" class="btn btn-primary">Rent desk</a>
+                        </div>
+                        <div class="col-md-8">
+                             <hr>
+                        </div>
+
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+         </div>
+
       {% endfor %}
 
-    </ul>
     {% endif %}
-
-
-  </div>
-
 
 {% endblock %}
