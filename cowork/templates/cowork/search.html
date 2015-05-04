@@ -1,11 +1,5 @@
 {% extends "base.html" %}
-{% block css %}
-    <script language="JavaScript" type="text/javascript">
-          function funMinus(n1, n2){
-            document.write(n1-n2)
-        }
-    </script>
-{% endblock %}
+
 {% block content %}
 <div class="jumbotron">
     <div class="container">
@@ -55,7 +49,7 @@
                             <p>Total desks: {{ loc.total_desks }} </p>
                         </div>
                         <div class="col-md-4 ">
-                            <p> Free desks: <script>javascript:funMinus({{ loc.total_desks }}, {{ loc.reserved_desks }});</script></p>
+                            <p> Free desks: {{ loc.free_desks }}</p>
                         </div>
                         <div class="row">
                             <div class="col-md-8 ">
