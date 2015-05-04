@@ -1,11 +1,17 @@
 import os
 from django.core.urlresolvers import reverse_lazy
+import dj_database_url
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'vvj&+a94!^+aa%2ghr#!2o*)kzn)bnl4m*!6zrab3(a2$l)!^0'
 DEBUG = True
 
-ALLOWED_HOSTS = []
+
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Allow all host headers
+ALLOWED_HOSTS = ['*']
 
 # Miscellaneous
 SITE_ID = 1
@@ -81,7 +87,7 @@ DATABASES = {
     }
 }
 
-
+DATABASES['default'] =dj_database_url.config()
 # Internationalization
 
 LANGUAGE_CODE = 'en-us'
