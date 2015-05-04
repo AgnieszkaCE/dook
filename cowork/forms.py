@@ -11,10 +11,16 @@ class CompanyCreationForm(forms.ModelForm):
         }
 
 
+class AddressCreateForm(forms.ModelForm):
+    class Meta:
+        model = Address
+        fields = ('street', 'street_numer', 'city', 'post_numer')
+
+
 class LocationCreationForm(forms.ModelForm):
     class Meta:
         model = Location
-        fields = ('city', 'total_desks', 'reserved_desks', 'price')
+        fields = ('address','total_desks', 'reserved_desks', 'price')
 
 
 class DeskCreateForm(forms.ModelForm):

@@ -10,7 +10,6 @@ from . import mixins
 from . import models
 
 
-
 class DashboardView(mixins.UserMixin, LoginRequiredMixin, TemplateView):
     template_name = 'cowork/dashboard.html'
 
