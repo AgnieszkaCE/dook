@@ -125,6 +125,8 @@ PIPELINE_AUTO = True
 PIPELINE_COMPILERS = (
     'pipeline.compilers.less.LessCompiler',
 )
+PIPELINE_YUGLIFY_BINARY = '/usr/local/bin/yuglify'
+PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.yuglify.YuglifyCompressor'
 
 PIPELINE_CSS = {
     'dashboard': {
