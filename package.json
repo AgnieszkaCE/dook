@@ -1,0 +1,22 @@
+{
+  "name": "coworkok-master",
+  "version": "0.0.0",
+  "description": "**CoWorkOk**",
+  "main": "index.js",
+  "dependencies": {
+    "less": "~2.5.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AgnieszkaCE/dook"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/AgnieszkaCE/dook/issues"
+  }
+}

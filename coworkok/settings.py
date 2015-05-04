@@ -125,8 +125,6 @@ PIPELINE_AUTO = True
 PIPELINE_COMPILERS = (
     'pipeline.compilers.less.LessCompiler',
 )
-PIPELINE_YUGLIFY_BINARY = '/usr/local/bin/yuglify'
-PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.yuglify.YuglifyCompressor'
 
 PIPELINE_CSS = {
     'dashboard': {
@@ -142,3 +140,10 @@ PIPELINE_CSS = {
         'output_filename': 'static/accounts/less/accounts.css'
     }
 }
+
+HEROKU_LESSC = os.path.join(PATH_TO_HERE, 'lib/node_modules/less/bin/lessc')
+HEROKU_NODE = os.path.join(PATH_TO_HERE, 'bin/node')
+if os.path.exists(HEROKU_LESSC):
+    PIPELINE_LESS_BINARY = "{0} {1}".format(HEROKU_NODE, HEROKU_LESSC)
+
+PIPELINE_LESS_ARGUMENTS = '--include-path=' + ':'.join('{0}/{1}/static/less'.format(PATH_TO_HERE, app) for app in INSTALLED_APPS if app in os.listdir(PATH_TO_HERE))
